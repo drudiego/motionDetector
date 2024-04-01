@@ -29,7 +29,7 @@ while True:
     thresh_delta=cv2.threshold(delta_frame, 20, 255, cv2.THRESH_BINARY)[1]
     thresh_delta=cv2.dilate(thresh_delta,None,iterations=2)
 
-    (_,cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    (cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     for contour in cnts:
         if cv2.contourArea(contour) < 2000:
